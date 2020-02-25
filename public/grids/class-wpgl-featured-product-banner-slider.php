@@ -39,7 +39,7 @@ if(!class_exists ('Wpgl_Featured_Product_Banner_Slider')) :
 
                 $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), 'single-post-thumbnail' ); ?>
 
-                <div class="container-wrapper">
+                <div class="container-fluid">
                   <div class="row">
                     <div class="col-lg-5 col-md-6">
                       <div class="c-item__picture">
@@ -59,7 +59,8 @@ if(!class_exists ('Wpgl_Featured_Product_Banner_Slider')) :
                         </div>
 
                         <div class="c-item__price">
-                          <?php echo sprintf('<span class="c-item__price-offer">%s</span>', $_product->get_price_html()); ?>
+                          <?php printf('<span class="c-item__price-offer">%s</span>', $_product->get_sale_price()); ?>
+                          <?php printf('<span class="c-item__price-regular">%s</span>', $_product->get_regular_price()); ?>
                         </div>
 
                         <div class="c-item__tags">
