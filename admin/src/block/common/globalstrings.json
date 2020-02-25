@@ -1,0 +1,7 @@
+{
+  "gridtype" : {
+    "bannerSlider" : "bannerSlider",
+    "postGridSlider" : "postGridSlider",
+    "featuredProductBannerSlider" : "featuredProductBannerSlider"
+  }
+}

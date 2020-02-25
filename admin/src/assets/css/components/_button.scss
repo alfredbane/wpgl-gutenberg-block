@@ -1,0 +1,77 @@
+.wp-core-ui .button-primary.components-button {
+  border-radius: 0px;
+
+  &.wpgl-button {
+    border-color: $primary-color;
+    background: $primary-color;
+    color: $secondary-color;
+    padding: 13px;
+    font-size: 18px;
+    line-height: 0px;
+    height: 50px;
+    width: 52px;
+    transition: all 0.2s ease-in 0s;
+    -webkit-transition: all 0.2s ease-in 0s;
+  }
+
+  &.wpgl-button:hover {
+    border-color: $secondary-color;
+    background: $secondary-color;
+    color: $primary-color;
+    box-shadow: none;
+    transition: all 0.2s ease-in 0s;
+    -webkit-transition: all 0.2s ease-in 0s;
+  }
+
+}
+
+.components-placeholder__buttons {
+    display: flex;
+    justify-content: center;
+
+    .wpglbutton {
+
+      border: 1px solid #d9ddc9;
+      text-align: left;
+      padding: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      margin-left: 10px;
+      text-transform: uppercase;
+      font-size: 12px;
+      cursor: pointer;
+      background-color: #f2f2f2;
+      color: #5f6352;
+
+      .dashicons {
+          display:block;
+      }
+
+    }
+}
+.components-placeholder__group {
+  .btn {
+    margin: 5px;
+    background-color: #1d2308;
+    border: none;
+    color: #bff403;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+.wpgl-bannercta-settings {
+
+    .components-button.components-icon-button{
+
+      &.button.button-small.button-primary.edit-button {
+      height: 37px;
+      width: 37px;
+      padding: 8px;
+    }
+
+  }
+}
+
+.components-base-control .components-base-control__help {
+  margin-top: 0
+}

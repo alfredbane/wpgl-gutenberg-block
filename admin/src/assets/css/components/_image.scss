@@ -1,0 +1,33 @@
+.wpgl-components-placeholder {
+
+  .wpgl__brand--image {
+    width: 40px;
+    height: 47px;
+    max-width: none;
+    margin-right: 10px;
+    float: left;
+  }
+
+  &.wpgl-block-banner-select.placeholder--small {
+
+    .wpgl__brand--image {
+      width: 20px;
+      height: 27px;
+      margin-right: 10px;
+    }
+
+  }
+
+}
+
+.wpgl-components__img--preview {
+
+  background-color: #f2f2f2;
+  width: 100%;
+  text-align: center;
+  
+  img {
+    width: 110px;
+    float: left;
+  }
+}

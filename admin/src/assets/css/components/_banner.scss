@@ -1,0 +1,185 @@
+.wpgl {
+  position: relative;
+
+  .banner__image {
+
+    .dropzone-simulation {
+      position: relative;
+
+      .upload-controls {
+        position: absolute;
+        bottom: 8px;
+        right: 0;
+      }
+
+    }
+
+  }
+
+}
+
+.wpgl-components-placeholder {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    margin-bottom: 10px;
+    padding: 10px;
+    justify-content: space-between;
+
+    &.wpgl-block-banner-select.placeholder--small {
+      padding: 10px;
+      justify-content: flex-start;
+      background-color: $light-color;
+
+      .components-placeholder__label {
+
+        .label__container {
+          display: flex;
+
+          .wpgllabel__text {
+            font-size: 11px;
+            color: $secondary-color;
+          }
+
+          .wpgllabel__text--dark {
+            font-size: 14px;
+          }
+
+        }
+      }
+
+      .wpgllabel {
+        width: 120px;
+        margin-left: 0px;
+      }
+
+    }
+
+
+    &.wpgl-block-banner-select {
+      padding: 30px;
+      justify-content: center;
+    }
+
+    .components-placeholder__label {
+      display: block;
+      margin-bottom: 0;
+      width: auto;
+
+      .label__container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .wpgllabel {
+        text-transform: uppercase;
+        width: 160px;
+        display: block;
+        margin-left: 0px;
+        line-height: 13px;
+        float: left;
+
+        &__text {
+          font-weight: normal;
+          line-height: normal;
+          font-size: 18px;
+
+          &--dark {
+            font-size: 20px;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .wpgl__grid--type {
+        max-width: 150px;
+        letter-spacing: 3px;
+        .wpgllabel__text.wpgllabel__text--dark {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+      }
+  }
+
+  &.wpgl-heading-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &.wpgl-caption-settings {
+
+    .editor-rich-text.block-editor-rich-text {
+      width: 100%;
+    }
+
+  }
+
+  &.wpgl-bannercta-settings {
+
+    justify-content: space-between;
+
+    .wpgl__group {
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+          .components-base-control.input.input__value {
+            margin: 0;
+          }
+
+          .components-base-control .components-base-control__field {
+              margin-bottom: 0;
+              margin-left: 5px;
+              margin-right: 5px;
+
+              .components-text-control__input {
+                  border-radius: 0;
+                  border-color:$secondary-color;
+                  padding: 10px;
+              }
+
+          }
+
+          .components-button.button.button-type {
+              border-radius: 0px;
+              border-color: $primary-color;
+              background-color: $primary-color;
+              color: $secondary-color;
+              line-height: 10px;
+              padding: 8px;
+              margin-left: 5px;
+          }
+
+        }
+    }
+
+}
+
+.wrapperDiv {
+    display: block;
+    clear: both;
+    position: relative;
+}
+
+.wpgl-inspector-controls__label.label--big {
+  font-size: 15px;
+  margin: 10px 0;
+  display: block;
+  color: #000;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 10px;
+}
+
+.wpgl-banner-controls {
+  .components-panel__row {
+    margin-top: 0;
+  }
+}
+
+.card.slick-slide {
+    width: 200px!important;
+}

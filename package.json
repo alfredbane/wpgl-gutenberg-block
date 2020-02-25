@@ -1,0 +1,39 @@
+{
+  "name": "wpgl-gutenberg-block",
+  "version": "1.0.0",
+  "description": "WPGL Gutenberg blocks for grids, slider, masonry of posttypes",
+  "main": "index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfredbane/wpgl-gutenberg-block.git"
+  },
+  "author": "worknWord",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfredbane/wpgl-gutenberg-block/issues"
+  },
+  "homepage": "https://github.com/alfredbane/wpgl-gutenberg-block#readme",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@wordpress/scripts": "5.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.2.0",
+    "ignore-emit-webpack-plugin": "^2.0.2",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.1",
+    "path": "^0.12.7",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "^8.0.0"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^3.8.0",
+    "file-loader": "^5.0.2",
+    "prop-types": "^15.7.2",
+    "url-loader": "^3.0.0"
+  }
+}

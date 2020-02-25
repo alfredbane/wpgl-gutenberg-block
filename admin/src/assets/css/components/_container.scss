@@ -1,0 +1,46 @@
+.wrapperDiv {
+
+    .wpgl-item .wp-block-image {
+      background-color: $amethyst-smoke-light;
+      color: $light-color;
+    }
+
+    .editor-block-list__layout>.editor-block-list__block>.editor-block-list__block-edit {
+      margin-top: 0px;
+    }
+
+    .wpgl-item {
+      background-color: $mulled-wine;
+      padding: 35px;
+
+      textarea.editor-plain-text {
+        padding: 7px 15px;
+        border-radius: 0;
+
+        &.caption-heading-text {
+          height:auto!important;
+        }
+
+        &.link-button-text {
+          height:auto!important;
+          float: left;
+          width: 38%;
+          margin-right: 9px;
+        }
+
+        &.link-plain-text {
+          height:auto!important;
+          width: 60%;
+        }
+      }
+    }
+}
+
+.wpgl-components__wrapper--hasbg {
+  background-color: #fbfbfb;
+  padding: 10px
+}
+
+// .editor-block-list__layout .wp-block {
+//     max-width: 1024px;
+// }
