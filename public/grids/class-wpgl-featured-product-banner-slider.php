@@ -59,14 +59,14 @@ if(!class_exists ('Wpgl_Featured_Product_Banner_Slider')) :
                         </div>
 
                         <div class="c-item__price">
-                          <?php printf('<span class="c-item__price-offer">%s</span>', $_product->get_sale_price()); ?>
-                          <?php printf('<span class="c-item__price-regular">%s</span>', $_product->get_regular_price()); ?>
+                          <?php echo sprintf('<span class="c-item__price-offer">%s</span>', $_product->get_price_html()); ?>
                         </div>
-
-                        <div class="c-item__tags">
-                          <?php $this->get_product_tags(get_the_ID()); ?>
-                        </div>
-
+                        
+                        <?php if( $this->get_product_tags(get_the_ID()) ) : ?>
+                          <div class="c-item__tags">
+                            <?php $this->get_product_tags(get_the_ID()); ?>
+                          </div>
+                        <?php endif; ?>
                         <div class="c-site-button">
                           <a alt="<?php echo __("View product in detail") ?>" class="c-button" href="<?php echo get_permalink( get_the_ID() ); ?>">
                             <span class="c-arrow-button">
