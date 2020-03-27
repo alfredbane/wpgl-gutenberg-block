@@ -22,28 +22,29 @@ if(!class_exists ('Wpgl_Featured_Product_Banner_Slider')) :
         $this->attributes = $attributes;
 
     }
+    
 
     function renderHTML() {
         
         $meta_query  = WC()->query->get_meta_query();
-    $tax_query   = WC()->query->get_tax_query();
-    $tax_query[] = array(
-        'taxonomy' => 'product_visibility',
-        'field'    => 'name',
-        'terms'    => 'featured',
-        'operator' => 'IN',
-    );
-
-    $args = array(
-        'post_type'           => 'product',
-        'post_status'         => 'publish',
-        'ignore_sticky_posts' => 1,
-        'posts_per_page'      => 4,
-        'meta_query'          => $meta_query,
-        'tax_query'           => $tax_query,
-    );
+        $tax_query   = WC()->query->get_tax_query();
+        $tax_query[] = array(
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => 'featured',
+            'operator' => 'IN',
+        );
     
-    $wpgl_posts_query = new WP_Query($args);
+        $args = array(
+            'post_type'           => 'product',
+            'post_status'         => 'publish',
+            'ignore_sticky_posts' => 1,
+            'posts_per_page'      => 4,
+            'meta_query'          => $meta_query,
+            'tax_query'           => $tax_query,
+        );
+    
+        $wpgl_posts_query = new WP_Query($args);
 
       ob_start(); ?>
 

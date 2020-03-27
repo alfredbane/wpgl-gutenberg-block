@@ -104,6 +104,17 @@ if(!class_exists ('Wpgl_Post_Grid_Slider')) :
       return $this->output;
 
     }
+    
+    
+    function is_ACF_field($field_name) {
+        
+        if(!class_exists("acf")) {
+            return;
+        }
+        
+        return $field_name;
+        
+    }
 
     function taxonomy_query() {
 
@@ -117,52 +128,62 @@ if(!class_exists ('Wpgl_Post_Grid_Slider')) :
       /* Post Custom Loop Settings */
       $term_id = $this->taxonomy_query();
       $taxonomy = $this->attributes['selectedTermTaxonomy'];
-      $wpgl_taxonomy_query = get_term_children($term_id, $taxonomy );
+      $meta_query = '';
+      
+      if($this->is_ACF_field('is_featured_pattern')) {
+          
+            $meta_query = array(
+            		         array(
+                		        'key' => 'is_featured_pattern',
+                			    'value' => '1',
+                			    'compare' => '=',
+            		         )
+            	        );
+            	        
+      }
+      
+      $wpgl_taxonomy_query = get_terms($taxonomy, 
+                                        array( 
+                                            'parent' => $term_id, 
+                                            'orderby' => 'slug', 
+                                            'hide_empty' => true,
+                                            'meta_query' => $meta_query
+                                        ));
       $output = '';
-
       ob_start(); ?>
 
       <div class="wpgl-sliders" <?php echo $this->get_slider_settings()->all_setting_attributes() ?> >
-         <?php 
          
-            $terms_per_page = 5;
-            $count = 0;
+         
+        <?php foreach( $wpgl_taxonomy_query as $data ):
             
-         ?>
-        <?php foreach( $wpgl_taxonomy_query as $dataID ):
-            
-            
-          if ($count == $terms_per_page ) { break; }
-          
-          $term = get_term_by('id', $dataID, $taxonomy );
+          $dataID = $data->term_id;
           $term_link = get_term_link($dataID, $taxonomy);
           $thumb_id = get_term_meta( $dataID, 'thumbnail_id', true );
           $thumb_meta = get_post_meta ( $thumb_id, '_wp_attachment_image_alt', true );
           $term_img = wp_get_attachment_url(  $thumb_id ); ?>
-
-
-          <div class="o-tile c-gradient-cycle">
-            <a class="o-tile__inner o-tile__inner--xxpd" title="<?php echo $term->name ?>" href="<?php echo $term_link ?>">
-             <div class="o-picture">
-               <picture class="o-picture__inner">
-                 <img alt="<?php $thumb_meta  ?>" class="img--imgfull" src=<?php echo $term_img  ?>
-                    srcset="<?php echo wp_get_attachment_image_srcset( $thumb_id, 'medium' ) ?>"
-                    sizes="<?php echo wp_get_attachment_image_sizes( $thumb_id, 'medium' ) ?>"
-                 />
-               </picture>
-             </div>
-             <div class="o-tile__content">
-                <h3 class="o-tile__title">
-                  <?php echo $term->name ?>
-                </h3>
-                <p class="o-tile__description">
-                  <?php echo $term->description ?>
-                </p>
-             </div>
-           </a>
-          </div>
-          
-          <?php $count++; ?>
+        
+            
+              <div class="o-tile c-gradient-cycle">
+                <a class="o-tile__inner o-tile__inner--xxpd" title="<?php echo $term->name ?>" href="<?php echo $term_link ?>">
+                 <div class="o-picture">
+                   <picture class="o-picture__inner">
+                     <img alt="<?php $thumb_meta  ?>" class="img--imgfull" src=<?php echo $term_img  ?>
+                        srcset="<?php echo wp_get_attachment_image_srcset( $thumb_id, 'medium' ) ?>"
+                        sizes="<?php echo wp_get_attachment_image_sizes( $thumb_id, 'medium' ) ?>"
+                     />
+                   </picture>
+                 </div>
+                 <div class="o-tile__content">
+                    <h3 class="o-tile__title">
+                      <?php echo $data->name ?>
+                    </h3>
+                    <p class="o-tile__description">
+                      <?php echo $data->description ?>
+                    </p>
+                 </div>
+               </a>
+              </div>
           
         <?php endforeach; ?>
       </div>
