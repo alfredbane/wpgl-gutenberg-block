@@ -123,8 +123,17 @@ if(!class_exists ('Wpgl_Post_Grid_Slider')) :
       ob_start(); ?>
 
       <div class="wpgl-sliders" <?php echo $this->get_slider_settings()->all_setting_attributes() ?> >
+         <?php 
+         
+            $terms_per_page = 5;
+            $count = 0;
+            
+         ?>
         <?php foreach( $wpgl_taxonomy_query as $dataID ):
-
+            
+            
+          if ($count == $terms_per_page ) { break; }
+          
           $term = get_term_by('id', $dataID, $taxonomy );
           $term_link = get_term_link($dataID, $taxonomy);
           $thumb_id = get_term_meta( $dataID, 'thumbnail_id', true );
@@ -136,7 +145,10 @@ if(!class_exists ('Wpgl_Post_Grid_Slider')) :
             <a class="o-tile__inner o-tile__inner--xxpd" title="<?php echo $term->name ?>" href="<?php echo $term_link ?>">
              <div class="o-picture">
                <picture class="o-picture__inner">
-                 <img alt="<?php $thumb_meta  ?>" class="img--imgfull" src=<?php echo $term_img  ?>>
+                 <img alt="<?php $thumb_meta  ?>" class="img--imgfull" src=<?php echo $term_img  ?>
+                    srcset="<?php echo wp_get_attachment_image_srcset( $thumb_id, 'medium' ) ?>"
+                    sizes="<?php echo wp_get_attachment_image_sizes( $thumb_id, 'medium' ) ?>"
+                 />
                </picture>
              </div>
              <div class="o-tile__content">
@@ -149,7 +161,9 @@ if(!class_exists ('Wpgl_Post_Grid_Slider')) :
              </div>
            </a>
           </div>
-
+          
+          <?php $count++; ?>
+          
         <?php endforeach; ?>
       </div>
       <?php

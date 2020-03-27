@@ -130,6 +130,7 @@ class Wpgl_Grids_Controller {
 
 		$postargs = array(
 			'post_type'   => $this->attributes['postType'],
+			'posts_per_page'      => 4,
 			'post_status' => 'publish',
 			'post__in'     => $includeOne,
 			'tax_query' => array( $tax_query )
@@ -163,7 +164,7 @@ class Wpgl_Grids_Controller {
 				break;
 
 				case "featuredProductBannerSlider" :
-					$output .= $this->featured_product_template->renderHTML($wpgl_posts_query);
+						$output .= $this->featured_product_template->renderHTML();
 				break;
 
 				default :
